@@ -161,8 +161,11 @@ async def runMain():
             lastResult = result
             if(startTag in result):
                 sendBack = ""
-                for i in users:
-                    sendBack +=i+";"
+                if(len(users) > 0): 
+                    for i in users:
+                        sendBack +=i+";"
+                else:
+                    sendBack = "NONE;"
                 mcr.command(rconTag+" "+sendBack)
             elif(tokenTag in result):
                 res = result.split("\"")[1].replace(tokenTag,"")
